@@ -14,7 +14,7 @@ class Updaters(Scene):
         ).add_coordinates(x_lables, y_lables)
         origin_point = Dot(ax.c2p(0, 0), color=WHITE)
         origin_point_label = Tex("O").next_to(origin_point, 0.25*DL)
-        self.play(Write(ax), run_time=2)
+        self.play(Write(ax), run_time=5)
         self.play(Write(origin_point),DrawBorderThenFill(origin_point_label), run_time=1)
         
         # 二次函数图象
@@ -47,5 +47,4 @@ class Updaters(Scene):
         self.add(l2)
         l2.add_updater(lambda x: x.become(Line(ax.c2p(-3,0), p1.get_center()).set_color(ORANGE)))
         self.play(MoveAlongPath(p1, arc2), run_time=3)
-        self.play(Restore(p1))
         # self.play(p1.animate.move_to(ax.c2p(1, 16)))
